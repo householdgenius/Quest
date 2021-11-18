@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 namespace Quest
 {
     // An instance of the Adventurer class is an object that will undergo some challenges
@@ -6,7 +8,7 @@ namespace Quest
         // This is an "immutable" property. It only has a "get".
         // The only place the Name can be set is in the Adventurer constructor
         // Note: the constructor is defined below.
-        public string Name { get; }
+        public string Name { get;}
 
         // This is a mutable property it has a "get" and a "set"
         //  So it can be read and changed by any code in the application
