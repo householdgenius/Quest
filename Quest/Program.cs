@@ -14,12 +14,12 @@ namespace Quest
             //   the text of the challenge
             //   a correct answer
             //   a number of awesome points to gain or lose depending on the success of the challenge
-           Console.WriteLine("What is your name adventurer?");
-           var adventurerName =  Console.ReadLine();
-           
+            Console.WriteLine("What is your name adventurer?");
+            var adventurerName = Console.ReadLine();
 
-           
-          
+
+
+
             Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
             Challenge theAnswer = new Challenge(
                 "What's the answer to life, the universe and everything?", 42, 25);
@@ -50,8 +50,8 @@ namespace Quest
 
             // Make a new "Adventurer" object using the "Adventurer" class
             Adventurer theAdventurer = new Adventurer(adventurerName);
-            
-            
+
+
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
             List<Challenge> challenges = new List<Challenge>()
@@ -65,9 +65,21 @@ namespace Quest
 
             // Loop through all the challenges and subject the Adventurer to them
             foreach (Challenge challenge in challenges)
-            {
-                challenge.RunChallenge(theAdventurer);
-            }
+                    {
+                        challenge.RunChallenge(theAdventurer);
+
+                    }
+                Console.WriteLine("Would you like to repeat the quest? (Y/N): ");
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "y"){
+                    foreach (Challenge challenge in challenges)
+                    {
+                        challenge.RunChallenge(theAdventurer);
+
+                    };
+                    
+                }
+            
 
             // This code examines how Awesome the Adventurer is after completing the challenges
             // And praises or humiliates them accordingly
@@ -82,7 +94,9 @@ namespace Quest
             else
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+
             }
+
         }
     }
 }
